@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metascience Matters | Podcast</title>
+  <meta name="description" content="Metascience Matters is a podcast about how science works, how it fails, and how to make it better." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header / Nav -->
+    <header class="site-header">
+      <div class="logo">
+        <div class="logo-text">
+          <span class="logo-title">Metascience Matters</span>
+          <span class="logo-subtitle">A podcast about how science works</span>
+        </div>
+      </div>
+
+      <div class="logo-center">
+        <img
+          src="logo.png"
+          alt="Metascience Matters logo"
+          class="logo-image"
+        />
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav">
+        <ul>
+          <li><button class="nav-link active" data-section="about">About</button></li>
+          <li><button class="nav-link" data-section="episodes">Episodes</button></li>
+          <li><button class="nav-link" data-section="newsletter">Newsletter</button></li>
+          <li><button class="nav-link" data-section="contact">Contact</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero / Intro -->
+    <main class="main-content">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="hero-tagline">Podcast • Science • Methods • Incentives</p>
+          <h1>Metascience Matters</h1>
+          <p class="hero-description">
+            Conversations at the intersection of science, statistics, incentives, and reform.
+            Deep dives into how evidence is made — and how we can do better.
+          </p>
+          <div class="hero-actions">
+            <a href="#" class="btn primary">Listen to the latest episode</a>
+            <a href="#episodes" class="btn ghost" data-section-link="episodes">Browse all episodes</a>
+          </div>
+
+          <div class="platform-badges">
+            <span>Available on:</span>
+            <div class="badge-row">
+              <a href="#" class="platform-badge">Spotify</a>
+              <a href="#" class="platform-badge">Apple Podcasts</a>
+              <a href="#" class="platform-badge">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="waveform"></div>
+            <div class="episode-meta">
+              <span class="pill">New</span>
+              <span class="episode-label">Episode 01</span>
+            </div>
+            <h2 class="episode-title">Why Metascience Matters</h2>
+            <p class="episode-subtitle">On replication, incentives, and the future of evidence.</p>
+
+            <div class="hero-audio">
+              <button class="play-button" aria-label="Play episode">
+                <!-- Simple “play” icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <polygon points="8,5 20,12 8,19"></polygon>
+                </svg>
+              </button>
+              <div class="audio-meta">
+                <span>Trailer • 3:21</span>
+                <div class="audio-progress">
+                  <div class="audio-progress-fill"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="content-section active">
+        <div class="section-header">
+          <h2>About the podcast</h2>
+          <p>
+            Metascience Matters explores how science actually works: incentives, methodology,
+            replication, publication bias, and everything in between. Each episode blends
+            expert interviews with clear explanations that cut through the noise.
+          </p>
+        </div>
+
+        <div class="grid two-column">
+          <div class="card">
+            <h3>What you’ll hear</h3>
+            <ul class="checklist">
+              <li>Deep dives into scientific methods and statistical thinking.</li>
+              <li>Interviews with researchers, reformers, and skeptics.</li>
+              <li>Case studies of “broken” evidence and how to fix it.</li>
+              <li>Practical ideas for making science more reliable.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Who it’s for</h3>
+            <p>
+              Researchers, clinicians, data scientists, policy makers, and anyone who cares
+              about what we think we know — and how we know it.
+            </p>
+            <p>
+              Whether you’re inside academia or just metascience-curious, you’ll find
+              episodes you can follow without needing a PhD.
+            </p>
+          </div>
+        </div>
+
+        <div class="hosts-area">
+          <h3>Your host</h3>
+          <div class="host-card">
+            <div class="host-avatar">
+              <!-- Replace with an actual image if you like -->
+              <span>ME</span>
+            </div>
+            <div class="host-info">
+              <h4>[Your Name]</h4>
+              <p>
+                [Short bio: e.g., “Computational neuroscientist and metascience nerd,
+                obsessed with evidence quality, causal inference, and the hidden rules
+                shaping modern research.”]
+              </p>
+              <div class="host-links">
+                <a href="#" class="text-link">Twitter / X</a>
+                <a href="#" class="text-link">GitHub</a>
+                <a href="#" class="text-link">Substack</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Episodes Section -->
+      <section id="episodes" class="content-section">
+        <div class="section-header">
+          <h2>Episodes</h2>
+          <p>
+            Start with a featured episode or browse the catalog. Replace the placeholder
+            content below with your real episodes and audio links.
+          </p>
+        </div>
+
+        <div class="episodes-toolbar">
+          <div class="search-wrapper">
+            <input type="search" id="episode-search" placeholder="Search episodes by title or topic…" />
+          </div>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="featured">Featured</button>
+            <button class="filter-btn" data-filter="methods">Methods</button>
+            <button class="filter-btn" data-filter="policy">Policy</button>
+          </div>
+        </div>
+
+        <div class="episodes-list" id="episodes-list">
+          <!-- Example episode card 1 -->
+          <article class="episode-card" data-tags="featured,methods">
+            <div class="episode-number">Ep 01</div>
+            <div class="episode-body">
+              <h3 class="episode-title">Why Metascience Matters</h3>
+              <p class="episode-meta">Trailer • 3:21 • Featured</p>
+              <p class="episode-description">
+                An introduction to the show. What is metascience, why does it matter,
+                and how does it connect to your daily life as a scientist or citizen?
+              </p>
+              <div class="episode-actions">
+                <a href="#" class="btn small">Play</a>
+                <a href="#" class="text-link">Show notes</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Example episode card 2 -->
+          <article class="episode-card" data-tags="methods">
+            <div class="episode-number">Ep 02</div>
+            <div class="episode-body">
+              <h3 class="episode-title">P-values vs Prediction</h3>
+              <p class="episode-meta">42:05 • Methods</p>
+              <p class="episode-description">
+                Why statistical significance and predictive performance are not the
+                same thing — and what this means for biomarkers, models, and medicine.
+              </p>
+              <div class="episode-actions">
+                <a href="#" class="btn small">Play</a>
+                <a href="#" class="text-link">Show notes</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Example episode card 3 -->
+          <article class="episode-card" data-tags="policy,featured">
+            <div class="episode-number">Ep 03</div>
+            <div class="episode-body">
+              <h3 class="episode-title">Registered Reports & Incentives</h3>
+              <p class="episode-meta">58:47 • Policy • Featured</p>
+              <p class="episode-description">
+                A conversation about registered reports, incentives in academia, and how
+                changing the publication model could reshape the evidence ecosystem.
+              </p>
+              <div class="episode-actions">
+                <a href="#" class="btn small">Play</a>
+                <a href="#" class="text-link">Show notes</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Add more episode-card blocks as you publish -->
+        </div>
+      </section>
+
+      <!-- Newsletter Section -->
+      <section id="newsletter" class="content-section">
+        <div class="section-header">
+          <h2>Newsletter</h2>
+          <p>
+            Get episode drops, reading lists, and occasionally spicy metascience takes
+            straight to your inbox. No spam, no fluff.
+          </p>
+        </div>
+
+        <div class="card">
+          <form class="newsletter-form" id="newsletter-form">
+            <div class="form-group">
+              <label for="newsletter-email">Email address</label>
+              <input type="email" id="newsletter-email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group-inline">
+              <label class="checkbox-label">
+                <input type="checkbox" id="newsletter-consent" required />
+                <span>I agree to receive email updates about Metascience Matters.</span>
+              </label>
+            </div>
+            <button type="submit" class="btn primary full-width">Join the list</button>
+            <p class="form-note">You can unsubscribe any time.</p>
+            <p class="form-message" id="newsletter-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="content-section">
+        <div class="section-header">
+          <h2>Contact</h2>
+          <p>
+            Want to suggest a guest, propose a collaboration, or send feedback?
+            Use the form below or reach out on social media.
+          </p>
+        </div>
+
+        <div class="grid two-column stacked-on-mobile">
+          <div class="card">
+            <form class="contact-form" id="contact-form">
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-topic">Topic</label>
+                <select id="contact-topic">
+                  <option value="general">General feedback</option>
+                  <option value="guest">Guest suggestion</option>
+                  <option value="collab">Collaboration</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" rows="5" placeholder="Share your thoughts…" required></textarea>
+              </div>
+              <button type="submit" class="btn primary full-width">Send message</button>
+              <p class="form-message" id="contact-message-status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3>Elsewhere on the internet</h3>
+            <ul class="social-list">
+              <li><a href="#" class="text-link">Twitter / X</a></li>
+              <li><a href="#" class="text-link">YouTube</a></li>
+              <li><a href="#" class="text-link">Spotify</a></li>
+              <li><a href="#" class="text-link">Apple Podcasts</a></li>
+              <li><a href="#" class="text-link">Email: hello@metasciencematters.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Metascience Matters. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
