@@ -1,0 +1,174 @@
+[
+  {
+    "title": "Brain stimulation, fraud, and the RIOT Science Club",
+    "guest": "Sam Westwood",
+    "published": "2026-10-07",
+    "duration": "1:01:08",
+    "video_id": "0fJkjfeiPjg",
+    "notes_url": "https://metasciencematters.substack.com/p/brain-stimulation-fraud-and-the-riot",
+    "topics": [
+      "integrity",
+      "replication"
+    ],
+    "label": "Research integrity",
+    "keywords": "brain stimulation ADHD neuromodulation incentives fraud open science"
+  },
+  {
+    "title": "Registered reports",
+    "guest": "Chris Chambers",
+    "published": "2026-09-23",
+    "duration": "1:03:41",
+    "video_id": "PgZjgZlxsYw",
+    "notes_url": "https://metasciencematters.substack.com/p/registered-reports-chris-chambers",
+    "topics": [
+      "replication"
+    ],
+    "label": "Research reform",
+    "keywords": "registered reports publishing preregistration null results incentives"
+  },
+  {
+    "title": "Direct replications, P-curves, and Acknowledging Limitations",
+    "guest": "Beth Clarke",
+    "published": "2026-09-02",
+    "duration": "59:26",
+    "video_id": "2HakjikqVuE",
+    "notes_url": "https://metasciencematters.substack.com/p/direct-replications-p-curves-and",
+    "topics": [
+      "replication"
+    ],
+    "label": "Replication",
+    "keywords": "p-values p-curves psychology limitations reproducibility preregistration RegCheck"
+  },
+  {
+    "title": "Replication research, diamond open access publishing",
+    "guest": "Lukas Röseler",
+    "published": "2026-06-27",
+    "duration": "1:19:03",
+    "video_id": "PSVNZ-OFj3U",
+    "notes_url": "https://metasciencematters.substack.com/p/replication-research-diamond-open",
+    "topics": [
+      "replication"
+    ],
+    "label": "Open science",
+    "keywords": "diamond open access publishing FORRT reproducibility"
+  },
+  {
+    "title": "Data Provenance in Medical Machine Learning",
+    "guest": "Alexander Gibson",
+    "published": "2026-05-27",
+    "duration": "54:51",
+    "video_id": "blNIZKYKo_Q",
+    "notes_url": "https://metasciencematters.substack.com/p/data-provenance-in-medical-machine",
+    "topics": [
+      "data",
+      "integrity"
+    ],
+    "label": "AI & data",
+    "keywords": "medical machine learning data provenance clinical AI reliability"
+  },
+  {
+    "title": "Fraud in Alzheimer's research",
+    "guest": "Charles Piller",
+    "published": "2026-04-22",
+    "duration": "1:02:30",
+    "video_id": "9v90Z17uQCM",
+    "notes_url": "https://metasciencematters.substack.com/p/charles-piller-fraud-in-alzheimers",
+    "topics": [
+      "integrity"
+    ],
+    "label": "Research integrity",
+    "keywords": "Alzheimer's neuroscience fraud misconduct Doctored"
+  },
+  {
+    "title": "The Replication Crisis Changed Psychology. Did It Fix It?",
+    "guest": "Brian Nosek",
+    "published": "2026-04-01",
+    "duration": "34:13",
+    "video_id": "4DCVyAWgOXg",
+    "notes_url": "https://metasciencematters.substack.com/p/brian-nosek-replicating-psychology",
+    "topics": [
+      "replication"
+    ],
+    "label": "Replication",
+    "keywords": "psychology reproducibility open science replication crisis"
+  },
+  {
+    "title": "Why So Many Cancer Biology Findings Fail to Replicate",
+    "guest": "Tim Errington",
+    "published": "2026-04-01",
+    "duration": "1:48:00",
+    "video_id": "-EDAtxMTxn0",
+    "notes_url": "https://metasciencematters.substack.com/p/tim-errington-replicating-cancer",
+    "topics": [
+      "replication"
+    ],
+    "label": "Replication",
+    "keywords": "cancer biology reproducibility preclinical research"
+  },
+  {
+    "title": "Litigating multimillion-dollar scientific fraud cases",
+    "guest": "Eugenie Reich",
+    "published": "2026-03-29",
+    "duration": "1:08:39",
+    "video_id": "SMRCynRDC0Q",
+    "notes_url": "https://metasciencematters.substack.com/p/eugenie-reich-litigating-multimillion",
+    "topics": [
+      "integrity"
+    ],
+    "label": "Research integrity",
+    "keywords": "whistleblowers legal litigation fraud grants lawsuits"
+  },
+  {
+    "title": "Forensic Metascience, the GRIM test, and technology for checking papers",
+    "guest": "James Heathers",
+    "published": "2026-03-29",
+    "duration": "1:17:08",
+    "video_id": "QH87h_4dbeg",
+    "notes_url": "https://metasciencematters.substack.com/p/james-heathers-forensic-metascience",
+    "topics": [
+      "integrity",
+      "data"
+    ],
+    "label": "Scientific sleuthing",
+    "keywords": "GRIM test forensic metascience paper checking statistics errors"
+  },
+  {
+    "title": "300+ retractions, image manipulation, and why science should be boring",
+    "guest": "Mu Yang",
+    "published": "2026-03-29",
+    "duration": "2:01:45",
+    "video_id": "E2EK6rGrnEU",
+    "notes_url": "https://metasciencematters.substack.com/p/mu-yang-300-retractions-image-manipulation",
+    "topics": [
+      "integrity"
+    ],
+    "label": "Research integrity",
+    "keywords": "image manipulation retractions fraud neuroscience"
+  },
+  {
+    "title": "Esketamine for depression, registered reports, and alcohol use disorder",
+    "guest": "Florian Naudet",
+    "published": "2026-03-29",
+    "duration": "1:03:48",
+    "video_id": "fn4qtnc99Xo",
+    "notes_url": "https://metasciencematters.substack.com/p/florian-naudet-esketamine-for-depression",
+    "topics": [
+      "replication"
+    ],
+    "label": "Research reform",
+    "keywords": "esketamine depression alcohol use disorder registered reports clinical trials"
+  },
+  {
+    "title": "Environmental impacts on health, and the future of AI in medicine",
+    "guest": "Chirag Patel",
+    "published": "2026-03-29",
+    "duration": "33:04",
+    "video_id": "RT2nypyb-iM",
+    "notes_url": "https://metasciencematters.substack.com/p/chirag-patel-exposomics-vibration",
+    "topics": [
+      "data"
+    ],
+    "label": "AI & data",
+    "keywords": "environmental exposures exposomics health AI medicine"
+  }
+]

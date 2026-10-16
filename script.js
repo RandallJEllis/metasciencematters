@@ -1,174 +1,115 @@
-// Tab navigation
-const navLinks = document.querySelectorAll(".nav-link");
-const contentSections = document.querySelectorAll(".content-section");
+"use strict";
 
-// Also allow hero button to switch to Episodes
-const sectionLinkButtons = document.querySelectorAll("[data-section-link]");
+document.documentElement.classList.add("js");
+document.getElementById("year").textContent = new Date().getFullYear();
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-function showSection(id) {
-  contentSections.forEach((section) => {
-    section.classList.toggle("active", section.id === id);
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.toggle("active", link.dataset.section === id);
-  });
-
-  // Scroll to top of main content for better UX
-  const main = document.querySelector(".main-content");
-  if (main) {
-    const offset = main.getBoundingClientRect().top + window.scrollY - 40;
-    window.scrollTo({ top: offset, behavior: "smooth" });
-  }
-}
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    const target = link.dataset.section;
-    if (target) {
-      showSection(target);
-      closeMobileNav();
-    }
-  });
-});
-
-sectionLinkButtons.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = btn.dataset.sectionLink;
-    if (target) {
-      showSection(target);
-    }
-  });
-});
-
-// Mobile nav toggle
+// Anchors still work without JavaScript. Enhance the small-screen menu.
 const navToggle = document.querySelector(".nav-toggle");
-const siteNav = document.querySelector(".site-nav");
-
-function closeMobileNav() {
-  if (siteNav && siteNav.classList.contains("open")) {
-    siteNav.classList.remove("open");
+const siteNav = document.getElementById("site-nav");
+function closeMenu() {
+  siteNav.classList.remove("open");
+  navToggle.setAttribute("aria-expanded", "false");
+}
+navToggle.addEventListener("click", () => {
+  const open = navToggle.getAttribute("aria-expanded") !== "true";
+  siteNav.classList.toggle("open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+});
+siteNav.addEventListener("click", (event) => {
+  if (event.target.closest("a")) closeMenu();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && siteNav.classList.contains("open")) {
+    closeMenu();
+    navToggle.focus();
   }
+});
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".header-inner")) closeMenu();
+});
+const desktopNav = window.matchMedia("(min-width: 761px)");
+function syncNavigation() {
+  navToggle.hidden = desktopNav.matches;
+  closeMenu();
 }
+desktopNav.addEventListener("change", syncNavigation);
+syncNavigation();
 
-if (navToggle && siteNav) {
-  navToggle.addEventListener("click", () => {
-    siteNav.classList.toggle("open");
-  });
-}
-
-// Episodes search + filter
-const searchInput = document.getElementById("episode-search");
-const filterButtons = document.querySelectorAll(".filter-btn");
-const episodeCards = document.querySelectorAll(".episode-card");
-
-function normalize(str) {
-  return (str || "").toLowerCase();
-}
-
-function updateEpisodeVisibility() {
-  const query = normalize(searchInput ? searchInput.value : "");
-  const activeFilterBtn = document.querySelector(".filter-btn.active");
-  const filter = activeFilterBtn ? activeFilterBtn.dataset.filter : "all";
-
-  episodeCards.forEach((card) => {
-    const title = normalize(
-      card.querySelector(".episode-title")?.textContent || ""
-    );
-    const description = normalize(
-      card.querySelector(".episode-description")?.textContent || ""
-    );
-    const tags = normalize(card.dataset.tags || "");
-
-    const matchesSearch =
-      !query || title.includes(query) || description.includes(query);
-
-    let matchesFilter = true;
-    if (filter && filter !== "all") {
-      matchesFilter = tags.includes(filter);
-    }
-
-    const visible = matchesSearch && matchesFilter;
-    card.style.display = visible ? "grid" : "none";
-  });
-}
-
-if (searchInput) {
-  searchInput.addEventListener("input", updateEpisodeVisibility);
-}
-
-filterButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    filterButtons.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-    updateEpisodeVisibility();
-  });
+// Load third-party players only on request. Keep direct links as fallbacks.
+const player = document.getElementById("video-player");
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[data-video]");
+  if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const videoId = link.dataset.video;
+  if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) return;
+  event.preventDefault();
+  const card = link.closest(".episode-card");
+  const title = link.dataset.title;
+  const divider = title.lastIndexOf(" | ");
+  document.getElementById("featured-title").textContent = divider > -1 ? title.slice(0, divider) : title;
+  document.getElementById("featured-guest").textContent = divider > -1 ? title.slice(divider + 3) : "Metascience Matters";
+  document.getElementById("featured-youtube").href = link.href;
+  if (card) {
+    document.getElementById("featured-notes").href = card.querySelector(".episode-notes").href;
+    document.querySelector(".feature-kicker").firstElementChild.textContent = "Now watching";
+    document.querySelector(".feature-kicker").lastElementChild.textContent = card.querySelector("time").textContent;
+  }
+  const iframe = document.createElement("iframe");
+  iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+  iframe.title = title;
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.allowFullscreen = true;
+  iframe.referrerPolicy = "strict-origin-when-cross-origin";
+  player.replaceChildren(iframe);
+  document.getElementById("player-status").textContent = `Video player loaded: ${title}. If playback is unavailable, use the Open on YouTube link below.`;
+  if (card) player.scrollIntoView({ behavior: reduceMotion.matches ? "instant" : "smooth", block: "center" });
+  player.focus({ preventScroll: true });
 });
 
-// Newsletter form (front-end only demo)
-const newsletterForm = document.getElementById("newsletter-form");
-const newsletterMessage = document.getElementById("newsletter-message");
+const spotifyButton = document.getElementById("load-spotify");
+spotifyButton.hidden = false;
+spotifyButton.addEventListener("click", () => {
+  const iframe = document.createElement("iframe");
+  iframe.src = "https://open.spotify.com/embed/show/7coSExbjL2LnlBZh89BDZG?utm_source=generator&theme=0";
+  iframe.title = "Metascience Matters episodes on Spotify";
+  iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+  document.getElementById("spotify-player").replaceChildren(iframe);
+  iframe.focus({ preventScroll: true });
+});
 
-if (newsletterForm && newsletterMessage) {
-  newsletterForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("newsletter-email").value.trim();
-    const consent = document.getElementById("newsletter-consent").checked;
-
-    if (!email || !consent) {
-      newsletterMessage.textContent =
-        "Please enter your email and agree to receive updates.";
-      newsletterMessage.classList.remove("success");
-      newsletterMessage.classList.add("error");
-      return;
-    }
-
-    // Replace this with your real newsletter API call (e.g., Mailchimp, ConvertKit)
-    newsletterMessage.textContent =
-      "Thanks for subscribing! Check your inbox for a confirmation email.";
-    newsletterMessage.classList.remove("error");
-    newsletterMessage.classList.add("success");
-    newsletterForm.reset();
-  });
+// HTML contains the complete archive for search engines and no-script visitors.
+const cards = Array.from(document.querySelectorAll(".episode-card"));
+const search = document.getElementById("episode-search");
+const showMore = document.getElementById("show-more");
+const emptyState = document.getElementById("empty-state");
+const resultsStatus = document.getElementById("results-status");
+let expanded = false;
+const pageSize = 6;
+function normalize(value) {
+  return value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 }
-
-// Contact form (front-end only demo)
-const contactForm = document.getElementById("contact-form");
-const contactStatus = document.getElementById("contact-message-status");
-
-if (contactForm && contactStatus) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById("contact-name").value.trim();
-    const email = document.getElementById("contact-email").value.trim();
-    const message = document
-      .getElementById("contact-message")
-      .value.trim();
-
-    if (!name || !email || !message) {
-      contactStatus.textContent =
-        "Please fill out all required fields before sending.";
-      contactStatus.classList.remove("success");
-      contactStatus.classList.add("error");
-      return;
-    }
-
-    // Replace this with your real backend or email service call.
-    contactStatus.textContent =
-      "Thanks for reaching out! Your message has been recorded.";
-    contactStatus.classList.remove("error");
-    contactStatus.classList.add("success");
-    contactForm.reset();
-  });
+const searchableText = new Map(cards.map((card) => [card, normalize(`${card.textContent} ${card.dataset.keywords || ""}`)]));
+function updateEpisodes(announce = true) {
+  const query = normalize(search.value);
+  const searching = query.length > 0;
+  const matching = cards.filter((card) => !query || searchableText.get(card).includes(query));
+  const visible = new Set(!searching && !expanded ? matching.slice(0, pageSize) : matching);
+  cards.forEach((card) => { card.hidden = !visible.has(card); });
+  showMore.hidden = searching || expanded || matching.length <= pageSize;
+  emptyState.hidden = matching.length > 0;
+  if (announce) resultsStatus.textContent = `${visible.size} of ${matching.length} ${matching.length === 1 ? "episode" : "episodes"} shown.`;
 }
-
-// Footer year
-const yearSpan = document.getElementById("year");
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
-}
-
-// Show About by default (in case JS initializes after DOM)
-showSection("about");
+search.addEventListener("input", () => updateEpisodes());
+showMore.addEventListener("click", () => {
+  expanded = true;
+  updateEpisodes();
+  cards[pageSize]?.querySelector("a").focus({ preventScroll: true });
+});
+document.getElementById("clear-search").addEventListener("click", () => {
+  search.value = "";
+  updateEpisodes();
+  search.focus({ preventScroll: true });
+});
+document.getElementById("episode-tools").hidden = false;
+updateEpisodes(false);
