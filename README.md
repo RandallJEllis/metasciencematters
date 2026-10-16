@@ -32,6 +32,8 @@ Episode details were checked against the public YouTube channel and Substack on 
 
 Styles live in `style.css`; interactions live in `script.js`. The existing original artwork is preserved in `logo.png` and `x_banner.png`; the page uses a smaller optimized copy in `assets/podcast-art.jpg`.
 
+After editing CSS or JavaScript, run `python3 scripts/version_assets.py` and commit the updated HTML and generated files in `assets/`. This gives each asset a content-based filename, so visitors with an older version cached receive the current styles and interactions.
+
 ## Hosting
 
 Serve this folder with any static host, including GitHub Pages. There is no build step for visitors. Deploy `index.html`, `style.css`, `script.js`, `assets/`, and `favicon/`. Keep `episodes.json` and `scripts/` with the source for future edits; the ZIP archives are not needed on the host.
